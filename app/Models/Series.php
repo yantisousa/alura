@@ -18,7 +18,7 @@ class Series extends Model
     protected static function booted()
     {
         self::addGlobalScope('odered', function (Builder $queryBuilder){
-            $queryBuilder->orderBy('nome'   );
+            $queryBuilder->orderBy('nome');
         });
     }
 

@@ -4,25 +4,18 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Requests\SeriesFormRequest;
-use App\Models\Episode;
-use App\Models\Season;
-use App\Models\Series;
-use App\Repositories\SerieRepository;
-use App\Repositories\SeriesRepository;
-use Illuminate\Cache\Repository;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-use function GuzzleHttp\Promise\all;
+use App\Models\Series;
+use App\Repositories\EloquentSeriesRepository;
 
 class SeriesController extends Controller
 {
-    public function __construct(private SeriesRepository $repository )
+    public function __construct(private EloquentSeriesRepository $repository )
     {
 
     }
 
-    public function index(Request $request) {
+    public function index() {
         $series = Series::all();
         $mensagemSucesso = session('mensagem.sucesso');
         return view('series.listarseries')->with('series', $series)->with('mensagemSucesso', $mensagemSucesso);

@@ -9,29 +9,40 @@
 
 </head>
 <body>
-    <h1>Temporadas de {{$series->nome}}</h1>
+
+    <h1>Episódios da Temporada {{$season->number}}</h1>
 
     <ul>
         <table class="table">
             <thead>
               <tr>
 
-                <th scope="col">TEMPORADAS</th>
+
                 <th>EPISÓDIOS</th>
 
               </tr>
             </thead>
             <tbody>
-                @foreach ($seasons as $season)
-              <tr>
+              <form method="post">
+                  @csrf
+                  @foreach ($episodes as $ep)
+                <tr>
+                  <td>
+                    <button class="btn btn-dark">{{$ep->number}} </button>
+                  </td>
+                  <td>
+                    <input name="episodes[]" class="form-check-input mt-0" type="checkbox" value="{{$ep->id}}" aria-label="Checkbox for following text input" @if($episodes->watched) checked @endif>
 
-                <td>  <a href="{{route('episodes.index', $season->id)}}"><b>{{ $season->number }}</b></a></td>
+                  </td>
+                </tr>
+                  @endforeach
 
-                <td> <b>{{$season->episodes->count() }}</b></td>
-              </tr>
-                 @endforeach
             </tbody>
           </table>
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+
+
 
 
     </ul>

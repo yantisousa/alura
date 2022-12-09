@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\EpisodeController;
 use App\Http\Controllers\SeriesController;
 use App\Http\Controllers\TemporadasController;
 use App\Models\Series;
+use Illuminate\Http\Client\Request as ClientRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,4 +27,5 @@ Route::get('/series/edit/{id}', [SeriesController::class, 'edit'])->name('series
 Route::put('/series/update/{series}', [SeriesController::class, 'update'])->name('series.update');
 
 Route::get('/series/{series}/seasons', [TemporadasController::class, 'index'])->name('temporadas.index');
-
+Route::get('season/{season}', [EpisodeController::class, 'index'])->name('episodes.index');
+Route::post('/season/{seasons}', [EpisodeController::class, 'update'])->name('episode.update');
