@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-
+    <style>
+      a {
+      text-decoration: none;
+      color: white;
+    }
+    </style>
 </head>
 <body>
     <h1>Temporadas de {{$series->nome}}</h1>
@@ -25,7 +30,7 @@
                 @foreach ($seasons as $season)
               <tr>
                 <td><button type="button" class="btn btn-dark"><a href="{{route('episodes.index', $season->id)}}"><b> {{ $season->number }}</b></a></button></td>
-                
+
 
                     <td> <b>{{$season->numberOfWatchedEpisodes()}} / {{$season->episodes->count() }}</b></td>
               </tr>

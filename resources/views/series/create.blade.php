@@ -10,11 +10,14 @@
         .form-control {
             width: 300px;
         }
+        form {
+            position: relative;
+            left: 40%;
+        }
     </style>
 
 </head>
 <body>
-    <h1>Cadastrar Série</h1>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -28,6 +31,7 @@
 
 
     <form action="{{route('series.store')}}" method="post">
+        <h1>Cadastrar Série</h1>
         @csrf
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Nome: </label>
