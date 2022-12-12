@@ -24,10 +24,10 @@
             <tbody>
                 @foreach ($seasons as $season)
               <tr>
+                <td><button type="button" class="btn btn-dark"><a href="{{route('episodes.index', $season->id)}}"><b> {{ $season->number }}</b></a></button></td>
+                
 
-                <td>  <a href="{{route('episodes.index', $season->id)}}"><b>{{ $season->number }}</b></a></td>
-
-                <td> <b>{{$season->episodes->count() }}</b></td>
+                    <td> <b>{{$season->numberOfWatchedEpisodes()}} / {{$season->episodes->count() }}</b></td>
               </tr>
                  @endforeach
             </tbody>

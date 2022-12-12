@@ -28,7 +28,7 @@
             <tbody>
                 @foreach ($series as $serie)
               <tr>
-                <td><a href="{{ route('temporadas.index', $serie->id) }}">{{$serie->nome}}</a></td>
+                <td><button style="list-style: none" type="button" class="btn btn-dark"><a href="{{ route('temporadas.index', $serie->id) }}">{{$serie->nome}}</a></button></td>
                 <td><a href="{{route('series.edit', $serie->id)}}" class="btn btn-info">Editar</a></td>
                 <td>
                     <form action="{{route('series.destroy', $serie->id)}}" method="POST">

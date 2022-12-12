@@ -28,4 +28,4 @@ Route::put('/series/update/{series}', [SeriesController::class, 'update'])->name
 
 Route::get('/series/{series}/seasons', [TemporadasController::class, 'index'])->name('temporadas.index');
 Route::get('season/{season}', [EpisodeController::class, 'index'])->name('episodes.index');
-Route::post('/season/{seasons}', [EpisodeController::class, 'update'])->name('episode.update');
+Route::post('/season/{seasons}/season', [EpisodeController::class, 'update'])->name('episode.update');
