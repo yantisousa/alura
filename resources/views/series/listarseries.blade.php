@@ -11,12 +11,32 @@
       text-decoration: none;
       color: white;
       }
+      .table {
+        width: 800px;
+        position: relative;
+        left: 18%;
+      }
+      .btn-info {
+        position: relative;
+        left: 230px;
+      }
+      .btn-danger {
+        position: relative;
+        left: 80px;
+        top: 3px;
+      }
+      .series {
+        text-align: center;
+      }
+      .btn-dark {
+        width: 150px;
+      }
     </style>
 </head>
 <body>
   <nav class="navbar navbar-expand-lg bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Series</a>
+      <a class="navbar-brand" href="#">YanFlix</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,16 +54,19 @@
             @endguest
 
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+          @auth
+              <li class="nav-item">
+            <a class="nav-link" href="{{route('series.create')}}">Adicionar Série</a>
           </li>
+          @endauth
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Dropdown link
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="">Another action</a></li>
               <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
@@ -51,9 +74,7 @@
       </div>
     </div>
   </nav>
-  @auth
-          <a href="{{route('series.create')}}" class="btn btn-light">ADICIONAR</a>
-  @endauth
+
     @isset($mensagemSucesso)
         <div class="alert alert-success">
             {{$mensagemSucesso}}
@@ -64,9 +85,10 @@
             <thead>
               <tr>
 
-                <th scope="col">NOME DA SÉRIE</th>
+                <th scope="col" class="series">SÉRIES</th>
                 @auth
-                    <th>AÇÕES</th>
+                  <th></th>
+                  <th></th>
                 @endauth
 
 

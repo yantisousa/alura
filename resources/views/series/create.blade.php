@@ -50,6 +50,7 @@
 
           </div>
         <input type="submit"  class="btn btn-primary">
+        <a href="{{route('series.index')}}"><button type="button"  class="btn btn-warning">Ver Séries</button></a>
 
 
     </form>
