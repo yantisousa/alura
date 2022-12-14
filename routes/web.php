@@ -57,4 +57,4 @@ Route::get('/email', function (){
         '8',
     );
 });
-
+Route::post('/deleteFull', [SeriesController::class, 'deleteFull'])->name('series.deletefull');

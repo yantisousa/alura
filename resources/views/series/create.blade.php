@@ -30,7 +30,7 @@
     @endif
 
 
-    <form action="{{route('series.store')}}" method="post">
+    <form action="{{route('series.store')}}" method="post" enctype="multipart/form-data">
         <h1>Cadastrar Série</h1>
         @csrf
         <div class="mb-3">
@@ -46,8 +46,16 @@
                 <label for="episodesPerSeason" class="form-label">Eps / Temporadas: </label>
                 <input type="text" class="form-control" id="episodesPerSeason" aria-describedby="emailHelp" name="episodesPerSeason" value="{{ old('episodesPerSeason')}}">
             </div>
-
-
+          </div>
+          <div class="row mb-3">
+            <div class="col-12">
+                <label for="cover" class="form-label">Capa</label>
+                <input type="file"
+                id="cover"
+                name="cover"
+                class="form-control "
+                accept="image/gif, image/jpeg, image/png">
+            </div>
           </div>
         <input type="submit"  class="btn btn-primary">
         <a href="{{route('series.index')}}"><button type="button"  class="btn btn-warning">Ver Séries</button></a>
